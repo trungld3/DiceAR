@@ -80,6 +80,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                                                             hitResult.worldTransform.columns.3.y + diceNode.boundingSphere.radius
                                 , hitResult.worldTransform.columns.3.z)
                             sceneView.scene.rootNode.addChildNode(diceNode)
+                            
+                            
+                            let radomX = Float (arc4random_uniform(4) + 1 ) * (Float.pi/2)
+                            let radomZ = Float( arc4random_uniform(4) + 1) * (Float.pi/2)
+                            
+                            diceNode.runAction(SCNAction.rotateBy(
+                                x: CGFloat(radomX * 5)
+                                , y: 0,
+                                  z: CGFloat(radomZ * 5),
+                                  duration: 0.5)
+                            )
                         }
             }
         }
